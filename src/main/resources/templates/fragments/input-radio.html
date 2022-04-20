@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="input(field, label, options)">
+    <div class="row mb-3">
+        <label class="col-4 col-form-label" th:for="${field}" th:text="${label.toUpperCase()}"></label>
+        <div class="col-8">
+            <div class="form-check" th:each="opt : ${options}">
+                <input class="form-check-input" type="radio" th:name="${field}" th:id="${field}" th:value="${opt.value}">
+                <label class="form-check-label" th:for="${field}" th:text="${opt.label}"></label>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

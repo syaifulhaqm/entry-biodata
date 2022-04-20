@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="input(inputType, field, label)">
+    <div class="row mb-3">
+        <label class="col-4 col-form-label" th:for="${field}" th:text="${label.toUpperCase()}"></label>
+        <div class="col-8">
+            <input th:type="${inputType}" class="form-control" th:name="${field}" th:id="${field}">
+        </div>
+    </div>
+</div>
+
+</html>
+

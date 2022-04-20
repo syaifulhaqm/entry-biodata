@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header.html :: header('Login')}"></head>
+<body>
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-5 text-center">
+
+            <h1>Login</h1>
+            <p>Masukan Username & Password</p>
+            <div class="form-horizontal" id="form-login">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">Maukan email yang valid.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Sandi</label>
+                    <input type="password" class="form-control" name="password" id="password">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="login()">Submit</button>
+            </div>
+        </div>
+
+        <a href="/sign-up">Sign Up</a>
+        <a href="/admin/list"> [Admin] </a>
+    </div>
+</div>
+
+
+<script>
+    clearLocalStorage();
+
+</script>
+</body>
+</html>

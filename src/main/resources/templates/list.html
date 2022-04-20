@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header.html :: header('Admin List')}"></head>
+<body>
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+
+            <h1>Daftar Biodata</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Tempat, Tanggal Lahir</th>
+                        <th>Posisi yang dilamar</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item: ${data}">
+                        <td th:text="${item.name}"></td>
+                        <td th:text="${item.pdob}"></td>
+                        <td th:text="${item.position}"></td>
+                        <td><button class="btn btn-primary" th:attr="onclick=|show('${item.id}')|">Lihat</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <a href="/sign-up">Sign Up</a>
+    </div>
+</div>
+
+
+<script>
+
+</script>
+</body>
+</html>
