@@ -13,6 +13,4 @@ data class User(
     var email: String = "",
     var password: String = "",
 
-    @OneToOne(mappedBy = "user")
-    var biodata: Biodata? = null
 )

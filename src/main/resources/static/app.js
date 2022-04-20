@@ -14,10 +14,22 @@ function serialize(querySelector) {
         .forEach(function(elm) {
             switch(elm.type) {
                 case 'text': result[elm.name] = elm.value
+                case 'email': result[elm.name] = elm.value
                 case 'radio': if (elm.checked) result[elm.name] = elm.value
             }
         });
     return result;
+}
+
+function deserialize(querySelector, data) {
+    document.querySelectorAll(querySelector)
+        .forEach(function(elm) {
+            switch(elm.type) {
+                case 'text': elm.value = data[elm.name]
+                case 'email': elm.value = data[elm.name]
+                case 'radio': if (data.hasOwnProperty(elm.name) && data[elm.name] == elm.value) elm.checked = true
+            }
+        });
 }
 
 function login() {
@@ -61,5 +73,5 @@ function apply() {
 }
 
 function show(id) {
-    console.log(id);
+    window.open('/admin/detail/' + id, '_self');
 }

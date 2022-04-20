@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header.html :: header('View Biodata')}"></head>
+<body>
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+
+            <h1>DATA PRIBADI PELAMAR</h1>
+            <div class="form-horizontal" id="form-detail">
+                <div th:replace="~{fragments/input.html :: input('text', 'position','1.  Posisi yang dilamar')}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'name','2.  Nama')}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'noKTP','2.  No. KTP')}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'pdob','4.  Tempat, Tanggal Lahir')}"></div>
+                <div th:replace="~{fragments/input-radio.html :: input('gender','5.  Jenis Kelamin', ${genders})}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'religion','6.  Agama')}"></div>
+                <div th:replace="~{fragments/input-radio.html :: input('bloodGroup','7.  Golongan Darah', ${bloodGroups})}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'status','8.  Status')}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'addressKTP','9.  Alamat KTP')}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'addressHome','10. Alamat Tinggal')}"></div>
+                <div th:replace="~{fragments/input.html :: input('email', 'email','11. Email')}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'phone','12. No. Telpon')}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'closePersion','13. Orang Terdekat yang dapat dihubungi')}"></div>
+                <!--                <div th:replace="~{fragments/input.html :: input('text', 'educations','14. Pendidikan Terakhir')}"></div>-->
+                <!--                <div th:replace="~{fragments/input.html :: input('text', 'trainings','15. Riwayat Pelatihan')}"></div>-->
+                <!--                <div th:replace="~{fragments/input.html :: input('text', 'experiences','16. Riwayat Pekerjaan')}"></div>-->
+                <div th:replace="~{fragments/input.html :: input('text', 'skill','17. Skill')}"></div>
+                <div th:replace="~{fragments/input-radio.html :: input('readyToBePlace','18. Bersedia ditempatkan di seluruh kantor perusahaan', ${readyToBePlaces})}"></div>
+                <div th:replace="~{fragments/input.html :: input('text', 'expectedSalary','19. Penghasilan yang diharapkan')}"></div>
+
+            </div>
+        </div>
+
+        <a href="/admin/list">Ke Daftar</a>
+    </div>
+</div>
+
+
+<script th:inline="javascript">
+    let data = JSON.parse([[${biodata}]]);
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        deserialize('#form-detail input[name]', data);
+    });
+</script>
+</body>
+</html>
